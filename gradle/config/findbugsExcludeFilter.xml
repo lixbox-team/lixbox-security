@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<FindBugsFilter>
+<Match>
+<Class name="fr.lixbox.security.cert.parser.GpmmCertParser"/>
+<Bug code="OBL"/>
+</Match>
+<Match>
+<Class name="fr.lixbox.security.cert.util.CertificateUtil"/>
+<Bug code="OBL"/>
+</Match>
+<Match>
+<Class name="fr.lixbox.security.cert.util.WebCertificatImporter"/>
+<Bug code="OBL"/>
+</Match>
+<Match>
+<Class name="fr.lixbox.security.jaas.cert.login.CertLoginModule"/>
+<Bug code="OBL"/>
+</Match>
+</FindBugsFilter>
+
+

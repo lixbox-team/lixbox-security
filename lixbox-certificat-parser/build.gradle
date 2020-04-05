@@ -1,0 +1,36 @@
+project(':lixbox-certificat-parser'){    
+	dependencies {    
+	    //project
+	    compile project(':lixbox-certificat')
+	    
+        //lixbox
+        compile(group: 'fr.lixbox.lixbox-common', name: 'lixbox-stream', version: version_lixbox_common)
+        
+        //divers
+        compile(group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: version_bouncy_castle)
+        compile(group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: version_bouncy_castle)
+        compile(group: 'org.bouncycastle', name: 'bcmail-jdk15on', version: version_bouncy_castle)
+
+
+        // ================================ Test ================================
+		testCompile 'junit:junit:4.12'
+	}
+    
+    eclipse{
+        wtp{
+            facet {
+                facet name: 'jst.cdi', version: '2.0'
+                facet name: 'jst.utility', version: '1.0'
+            }
+        }
+    }
+	
+	sonarqube {
+		properties {
+           property "sonar.projectKey", "${config.desc_project.artefact.group}.${rootProject.name}:${project.name}"
+           property "sonar.projectName", "${project.name}"
+		   property "sonar.sources","src/main"
+		   property "sonar.tests","src/test"
+        }
+	}	
+}
