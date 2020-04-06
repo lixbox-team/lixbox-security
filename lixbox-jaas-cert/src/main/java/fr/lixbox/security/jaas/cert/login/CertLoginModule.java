@@ -145,25 +145,25 @@ public class CertLoginModule extends AbstractServerLoginModule
             this.getLoginInfo();
             if (parser != null)
             {
-                Object user_id = this.parser.getCertificateId();
+                Object certId = this.parser.getCertificateId();
                 if (!this.loginOk)
                 {
         
-                    LOG.trace("Identite presentee:"+user_id);
+                    LOG.trace("Identite presentee:"+certId);
                     if (this.parser.getCertificateId()==null)
                     {
-                        user_id = this.sharedState.get("javax.security.auth.login.name");
+                        certId = this.sharedState.get("javax.security.auth.login.name");
                     }
         
-                    if (user_id!=null)
+                    if (certId!=null)
                     {
-                        if( user_id instanceof Principal )
+                        if( certId instanceof Principal )
                         {
-                            this.identity = (Principal) user_id;
+                            this.identity = (Principal) certId;
                         }
                         else
                         {
-                            final String id = user_id.toString();
+                            final String id = certId.toString();
                             try
                             {
                                 this.identity = this.createIdentity("",id);

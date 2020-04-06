@@ -64,6 +64,7 @@ import fr.lixbox.security.cert.model.enumeration.X509Extensions;
  */
 public final class BasicCertParser implements CertParser
 {
+    private static final String SERIAL_NUMBER = "serialNumber";
     // ----------- Attribut -----------
     private static final Log LOG = LogFactory.getLog(BasicCertParser.class);    
     private X509Certificate cert;
@@ -116,7 +117,7 @@ public final class BasicCertParser implements CertParser
         }
         else
         {
-            LOG.debug("Le Certificat n : " +certDatas.get("serialNumber") + " est revoque");
+            LOG.debug("Le Certificat n : " +certDatas.get(SERIAL_NUMBER) + " est revoque");
         }
         return null;
     }
@@ -140,11 +141,10 @@ public final class BasicCertParser implements CertParser
             cf = CertificateFactory.getInstance("X.509");
             X509CRL crl;
             crl = (X509CRL) cf.generateCRL(inCrl);
-            inCrl.close();
             LOG.debug("La CRL courante a ete publie le: " + crl.getThisUpdate());
             LOG.debug("La CRL sera misea jour au plus tard le " + crl.getNextUpdate());
             LOG.debug("La CRL est genene par " + crl.getIssuerDN());
-            X509CRLEntry certRevoque = crl.getRevokedCertificate((BigInteger) certDatas.get("serialNumber"));
+            X509CRLEntry certRevoque = crl.getRevokedCertificate((BigInteger) certDatas.get(SERIAL_NUMBER));
             if (crl.getNextUpdate().before(new Date()))
             {
                 LOG.error("LA CRL est expiré");
@@ -152,13 +152,13 @@ public final class BasicCertParser implements CertParser
             if (certRevoque != null)
             {
                 result = true;
-                LOG.debug("Le CERTIFICAT " + ((BigInteger)certDatas.get("serialNumber")).toString(16) + " est revoque depuis le : "
+                LOG.debug("Le CERTIFICAT " + ((BigInteger)certDatas.get(SERIAL_NUMBER)).toString(16) + " est revoque depuis le : "
                         + certRevoque.getRevocationDate());
             }
             else
             {
                 result = false;
-                LOG.debug("Le CERTIFICAT " + ((BigInteger)certDatas.get("serialNumber")).toString(16) + " est OK, et NON revoque");
+                LOG.debug("Le CERTIFICAT " + ((BigInteger)certDatas.get(SERIAL_NUMBER)).toString(16) + " est OK, et NON revoque");
             }
         }
         catch (IOException | CertificateException | CRLException e)
@@ -187,7 +187,7 @@ public final class BasicCertParser implements CertParser
         this.certDatas.put("ou", extraireChamp("OU", info));
         this.certDatas.put("st", extraireChamp("ST", info));
         this.certDatas.put("policy", extrairePolicy());
-        this.certDatas.put("serialNumber", extraireSerialNumber());
+        this.certDatas.put(SERIAL_NUMBER, extraireSerialNumber());
         this.certDatas.put("crlDistributionPoints", extraireCrlDistributionPoint());
         this.certDatas.put("othername", extraireOtherName());
     }
@@ -298,7 +298,7 @@ public final class BasicCertParser implements CertParser
 
     private List<String> extraireOtherName()
     {
-        List<String> identities = new ArrayList<String>();
+        List<String> identities = new ArrayList<>();
         try
         {
             Collection<List<?>> altNames = cert.getSubjectAlternativeNames();
@@ -315,8 +315,10 @@ public final class BasicCertParser implements CertParser
                 {
                     // Type OtherName found so return the associated value
                     try
-                    {
+                    (
                         ASN1InputStream decoder = new ASN1InputStream((byte[]) item.toArray()[1]);
+                    )
+                    {
                         ASN1Encodable encoded = decoder.readObject();
                         encoded = ((DLSequence) encoded).getObjectAt(1);
                         encoded = ((DERTaggedObject) encoded).getObject();
