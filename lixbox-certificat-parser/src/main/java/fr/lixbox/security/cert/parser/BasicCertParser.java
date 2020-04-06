@@ -325,7 +325,6 @@ public final class BasicCertParser implements CertParser
                         encoded = ((DERTaggedObject) encoded).getObject();
                         String identity = ((DERUTF8String) encoded).getString();
                         identities.add(identity);
-                        decoder.close();
                     }
                     catch (Exception e)
                     {
