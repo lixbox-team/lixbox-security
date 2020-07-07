@@ -5,7 +5,7 @@ buildscript {
             url "https://plugins.gradle.org/m2"
         }
         maven {
-            url "https://repos.service.lixtec.fr/artifactory/libs-release"
+            url "https://repos.service.dev.lan/artifactory/libs-release"
 		    credentials{
 		    	username="lixbox.jenkins.bot"
 		    	password=".TL1b0sc!"
@@ -120,7 +120,7 @@ allprojects {
 task tagRelease() {
     doLast {
         def grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
-        def tagger = new Person(name:"jenkins", email:"lixbox-jenkins-bot@lixtec.fr")
+        def tagger = new Person(name:"jenkins", email:"lixbox-jenkins-bot@dev.lan")
         grgit.tag.add{
             name="$project.version"
             message="Release of $project.version"
@@ -424,7 +424,7 @@ subprojects {
     dependencyCheck {
         data {
             driver="org.postgresql.Driver"
-            connectionString="jdbc:postgresql://owasp.service.lixtec.fr:54320/owasp"
+            connectionString="jdbc:postgresql://owasp.service.dev.lan:54320/owasp"
             username="owasp"
             password="MyOwaspDbPwdSecurity!"
         }
