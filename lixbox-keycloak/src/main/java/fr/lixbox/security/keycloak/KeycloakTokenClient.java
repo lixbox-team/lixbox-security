@@ -109,7 +109,7 @@ public class KeycloakTokenClient
 
     private AccessToken getAccessToken(Keycloak keycloak) throws VerificationException
     {
-        return extractAccessTokenFrom(keycloak, getAccessTokenString(keycloak));
+        return extractAccessTokenFrom(getAccessTokenString(keycloak));
     }
 
 
@@ -122,7 +122,7 @@ public class KeycloakTokenClient
 
 
 
-    private AccessToken extractAccessTokenFrom(Keycloak keycloak, String token) throws VerificationException
+    private AccessToken extractAccessTokenFrom(String token) throws VerificationException
     {
         if (token == null)
         {
