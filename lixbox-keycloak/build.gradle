@@ -4,7 +4,10 @@ project(':lixbox-keycloak'){
         compile(group: 'fr.lixbox.lixbox-common', name: 'lixbox-core', version: version_lixbox_common)
         
         //divers
-        compileOnly group: 'org.keycloak', name: 'keycloak-admin-client', version: version_keycloak
+        compileOnly (group: 'org.keycloak', name: 'keycloak-admin-client', version: version_keycloak){
+            exclude group: 'com.fasterxml.jackson.core'
+        }
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.2'
         
         
 
