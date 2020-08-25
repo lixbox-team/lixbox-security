@@ -9,3 +9,5 @@ include 'lixbox-crypto'
 include 'lixbox-jaas-basic'
 include 'lixbox-jaas-cert'
 include 'lixbox-jaas-core'
+
+include 'lixbox-keycloak'
