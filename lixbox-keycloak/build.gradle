@@ -4,7 +4,7 @@ project(':lixbox-keycloak'){
         compile(group: 'fr.lixbox.lixbox-common', name: 'lixbox-core', version: version_lixbox_common)
         
         //divers
-        compile group: 'org.keycloak', name: 'keycloak-admin-client', version: version_keycloak
+        compileOnly group: 'org.keycloak', name: 'keycloak-admin-client', version: version_keycloak
         
         
 
