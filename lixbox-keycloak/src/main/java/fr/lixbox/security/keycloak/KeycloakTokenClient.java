@@ -23,13 +23,6 @@
  ******************************************************************************/
 package fr.lixbox.security.keycloak;
 
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import java.util.Base64;
-
 import org.keycloak.OAuth2Constants;
 import org.keycloak.TokenVerifier;
 import org.keycloak.admin.client.Keycloak;
@@ -77,7 +70,7 @@ public class KeycloakTokenClient
 
 
 
-    public AccessToken getAccessToken() throws VerificationException
+    public ExtendAccessToken getAccessToken() throws VerificationException
     {
         return getAccessToken(newKeycloakBuilderWithClientCredentials().build());
     }
@@ -91,7 +84,7 @@ public class KeycloakTokenClient
 
 
 
-    public AccessToken getAccessToken(String username, String password) throws VerificationException
+    public ExtendAccessToken getAccessToken(String username, String password) throws VerificationException
     {
         return getAccessToken(
                 newKeycloakBuilderWithPasswordCredentials(username, password).build());
@@ -107,7 +100,7 @@ public class KeycloakTokenClient
 
 
 
-    private AccessToken getAccessToken(Keycloak keycloak) throws VerificationException
+    private ExtendAccessToken getAccessToken(Keycloak keycloak) throws VerificationException
     {
         return extractAccessTokenFrom(getAccessTokenString(keycloak));
     }
@@ -122,14 +115,17 @@ public class KeycloakTokenClient
 
 
 
-    private AccessToken extractAccessTokenFrom(String token) throws VerificationException
+    private ExtendAccessToken extractAccessTokenFrom(String token) throws VerificationException
     {
         if (token == null)
         {
             return null;
         }
         TokenVerifier<AccessToken> tokenVerifier = TokenVerifier.create(token, AccessToken.class);
-        return tokenVerifier.verify().getToken();
+        ExtendAccessToken accessToken = new ExtendAccessToken();
+        accessToken.setToken(tokenVerifier.getToken());
+        accessToken.setRawToken(token);
+        return accessToken;
     }
 
 
@@ -184,22 +180,5 @@ public class KeycloakTokenClient
     public String getRealmCertsUrl()
     {
         return getRealmUrl() + "/protocol/openid-connect/certs";
-    }
-
-
-
-    public PublicKey toPublicKey(String publicKeyString)
-    {
-        try
-        {
-            byte[] publicBytes = Base64.getDecoder().decode(publicKeyString);
-            X509EncodedKeySpec keySpec = new X509EncodedKeySpec(publicBytes);
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-            return keyFactory.generatePublic(keySpec);
-        }
-        catch (NoSuchAlgorithmException | InvalidKeySpecException e)
-        {
-            return null;
-        }
     }
 }
