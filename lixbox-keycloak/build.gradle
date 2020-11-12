@@ -7,7 +7,7 @@ project(':lixbox-keycloak'){
         compileOnly (group: 'org.keycloak', name: 'keycloak-admin-client', version: version_keycloak){
             exclude group: 'com.fasterxml.jackson.core'
         }
-        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.2'
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
         
         
 

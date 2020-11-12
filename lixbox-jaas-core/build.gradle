@@ -2,11 +2,9 @@ project(':lixbox-jaas-core'){
 	dependencies {    
         //lixbox
         compile(group: 'fr.lixbox.lixbox-common', name: 'lixbox-core', version: version_lixbox_common)
-        compile (group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0')
         
         //divers
         compileOnly 'org.picketbox:picketbox:4.0.21.Final'
-        compileOnly group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
 
 
         // ================================ Test ================================
