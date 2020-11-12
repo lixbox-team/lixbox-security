@@ -7,9 +7,10 @@ project(':lixbox-jaas-basic'){
 
         //divers
         compileOnly 'org.picketbox:picketbox:4.0.21.Final'
-
+        
+        
         // ================================ Test ================================
-		testCompile 'junit:junit:4.12'
+        testCompile group: 'junit', name:'junit', version: version_junit
 	}
     
     jar{

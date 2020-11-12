@@ -10,9 +10,8 @@ project(':lixbox-keycloak'){
         compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
         
         
-
         // ================================ Test ================================
-		testCompile 'junit:junit:4.12'
+        testCompile group: 'junit', name:'junit', version: version_junit
 	}
     
     jar{
