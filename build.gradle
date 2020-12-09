@@ -120,7 +120,7 @@ allprojects {
 task tagRelease() {
     doLast {
         def grgit = org.ajoberstar.grgit.Grgit.open(dir: project.rootDir)
-        def tagger = new Person(name:"jenkins", email:"lixbox-jenkins-bot@dev.lan")
+        def tagger = new Person(name:"jenkins", email:"lixbox-jenkins-bot@lixtec.fr")
         grgit.tag.add{
             name="$project.version"
             message="Release of $project.version"
@@ -424,7 +424,7 @@ subprojects {
     dependencyCheck {
         data {
             driver="org.postgresql.Driver"
-            connectionString="jdbc:postgresql://owasp.service.dev.lan:54320/owasp"
+            connectionString="jdbc:postgresql://owasp.service.lixtec.fr:54320/owasp"
             username="owasp"
             password="MyOwaspDbPwdSecurity!"
         }
