@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
    <suppress>
+   <notes><![CDATA[
+   file name: httpclient-4.5.4.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.apache\.httpcomponents/httpclient@.*$</packageUrl>
+   <cpe>cpe:/a:apache:httpclient</cpe>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: keycloak-admin-client-11.0.3.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.keycloak/keycloak\-admin\-client@.*$</packageUrl>
+   <cpe>cpe:/a:keycloak:keycloak</cpe>
+</suppress><suppress>
       <notes><![CDATA[
       file name: dom4j-2.1.1.jar
       ]]></notes>
@@ -66,5 +78,89 @@
    ]]></notes>
    <packageUrl regex="true">^pkg:maven/org\.jboss\.resteasy/resteasy\-jaxrs@.*$</packageUrl>
    <vulnerabilityName>CVE-2020-25633</vulnerabilityName>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: keycloak-admin-client-11.0.3.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.keycloak/keycloak\-admin\-client@.*$</packageUrl>
+   <cpe>cpe:/a:redhat:keycloak</cpe>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: keycloak-common-11.0.3.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.keycloak/keycloak\-common@.*$</packageUrl>
+   <cpe>cpe:/a:keycloak:keycloak</cpe>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: keycloak-common-11.0.3.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.keycloak/keycloak\-common@.*$</packageUrl>
+   <cpe>cpe:/a:redhat:keycloak</cpe>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: keycloak-core-11.0.3.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.keycloak/keycloak\-core@.*$</packageUrl>
+   <cpe>cpe:/a:keycloak:keycloak</cpe>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: keycloak-core-11.0.3.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.keycloak/keycloak\-core@.*$</packageUrl>
+   <cpe>cpe:/a:redhat:keycloak</cpe>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: resteasy-client-3.9.1.Final.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.jboss\.resteasy/resteasy\-client@.*$</packageUrl>
+   <cpe>cpe:/a:redhat:resteasy</cpe>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: resteasy-jackson2-provider-3.9.1.Final.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.jboss\.resteasy/resteasy\-jackson2\-provider@.*$</packageUrl>
+   <cpe>cpe:/a:redhat:resteasy</cpe>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: resteasy-jaxb-provider-3.9.1.Final.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.jboss\.resteasy/resteasy\-jaxb\-provider@.*$</packageUrl>
+   <cpe>cpe:/a:redhat:resteasy</cpe>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: resteasy-multipart-provider-3.9.1.Final.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.jboss\.resteasy/resteasy\-multipart\-provider@.*$</packageUrl>
+   <cpe>cpe:/a:redhat:resteasy</cpe>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: httpclient-4.5.4.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.apache\.httpcomponents/httpclient@.*$</packageUrl>
+   <vulnerabilityName>CVE-2020-13956</vulnerabilityName>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: keycloak-core-11.0.3.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.keycloak/keycloak\-core@.*$</packageUrl>
+   <cpe>cpe:/a:redhat:jboss_keycloak</cpe>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: keycloak-core-11.0.3.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.keycloak/keycloak\-core@.*$</packageUrl>
+   <vulnerabilityName>CVE-2020-10776</vulnerabilityName>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: keycloak-core-11.0.3.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.keycloak/keycloak\-core@.*$</packageUrl>
+   <vulnerabilityName>CVE-2020-14366</vulnerabilityName>
+</suppress><suppress>
+   <notes><![CDATA[
+   file name: keycloak-core-11.0.3.jar
+   ]]></notes>
+   <packageUrl regex="true">^pkg:maven/org\.keycloak/keycloak\-core@.*$</packageUrl>
+   <vulnerabilityName>CVE-2020-14389</vulnerabilityName>
 </suppress>
 </suppressions>
