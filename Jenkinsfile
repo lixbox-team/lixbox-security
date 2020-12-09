@@ -3,7 +3,7 @@ projectSiteUri = 'https://project-site.service.lixtec.fr/lixbox-security';
 gitUri = 'https://github.com/lixbox-team/lixbox-security.git';
 mattermostUri = 'https://team.service.lixtec.fr/hooks/xwqzwmg7zpf18kkdxm3tqw1kqh';
 channel = 'lixbox';
-branchName = 'jdk-8'
+branchName = 'jdk-11'
 
 @NonCPS
 def onFailed(e) {
@@ -14,7 +14,7 @@ def onFailed(e) {
     mattermostSend channel: channel, color: '#dd4040', endpoint: mattermostUri, message: msg, text: title
 }
     
-node('slave-gradle-jdk8') {    
+node('slave-gradle-jdk11') {    
     stage('Init'){
         echo 'Initialisation started'
         try{

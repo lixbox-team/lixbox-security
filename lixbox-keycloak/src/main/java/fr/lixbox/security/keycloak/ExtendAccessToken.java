@@ -21,55 +21,45 @@
  *   @AUTHOR Lixbox-team
  *
  ******************************************************************************/
-package fr.lixbox.security.cert.model.enumeration;
+package fr.lixbox.security.keycloak;
 
 import java.io.Serializable;
 
+import org.keycloak.representations.AccessToken;
 
 /**
- *  Cette classe d'enumeration regroupe tous les 
- *  types de keystore.
- *  
- *  @author ludovic.terral  
+ * Ce client fournit un outil de demande de token à keycloak.
+ * 
+ *  @author ludovic.terral
  */
-public enum TypeKs implements Serializable
+public class ExtendAccessToken implements Serializable
 {
-    // ----------- Attribut -----------
-    JKS("KEYSTORE SUN JKS","JKS"),     
-    PEM("KEYSTORE PEM","PEM"),
-    PKCS12("KEYSTORE PKCS12", "PKCS12");
-  
-    private String libelle;
-    private String libelleCourt;
-
+    // ----------- Attribut(s) -----------
+    private static final long serialVersionUID = 20200928115212L;
+    
+    private String rawToken;
+    private AccessToken token;
     
     
-    // ----------- Methode -----------
-    private TypeKs(String libelle, String libelleCourt)
+    
+    // ----------- Methode(s) -----------
+    public String getRawToken()
     {
-        this.libelle = libelle;
-        this.libelleCourt = libelleCourt;
+        return rawToken;
+    }
+    public void setRawToken(String rawToken)
+    {
+        this.rawToken = rawToken;
     }
     
     
     
-    public String getLibelle()
+    public AccessToken getToken()
     {
-        return libelle;
+        return token;
     }
-    
-
-
-    public String getLibelleCourt()
+    public void setToken(AccessToken token)
     {
-        return libelleCourt;
-    }
-
-    
-
-    @Override
-    public String toString()
-    {
-        return libelle;
+        this.token = token;
     }
 }

@@ -3,9 +3,6 @@ project(':lixbox-certificat-parser'){
 	    //project
 	    compile project(':lixbox-certificat')
 	    
-        //lixbox
-        compile(group: 'fr.lixbox.lixbox-common', name: 'lixbox-stream', version: version_lixbox_common)
-        
         //divers
         compile(group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: version_bouncy_castle)
         compile(group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: version_bouncy_castle)
@@ -13,7 +10,7 @@ project(':lixbox-certificat-parser'){
 
 
         // ================================ Test ================================
-		testCompile 'junit:junit:4.12'
+        testCompile group: 'junit', name:'junit', version: version_junit
 	}
     
     jar{
