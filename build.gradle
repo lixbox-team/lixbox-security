@@ -5,7 +5,7 @@ buildscript {
             url "https://plugins.gradle.org/m2"
         }
         maven {
-            url "https://repos.service.dev.lan/artifactory/libs-release"
+            url "https://repos.service.lixtec.fr/artifactory/libs-release"
 		    credentials{
 		    	username="lixbox.jenkins.bot"
 		    	password=".TL1b0sc!"
