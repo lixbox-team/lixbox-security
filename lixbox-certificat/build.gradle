@@ -1,18 +1,18 @@
 project(':lixbox-certificat'){    
 	dependencies {    
         //lixbox
-        compile(group: 'fr.lixbox.lixbox-common', name: 'lixbox-core', version: version_lixbox_common)
-        compile(group: 'fr.lixbox.lixbox-common', name: 'lixbox-stream', version: version_lixbox_common)
+        api(group: 'fr.lixbox.lixbox-common', name: 'lixbox-core', version: version_lixbox_common)
+        api(group: 'fr.lixbox.lixbox-common', name: 'lixbox-stream', version: version_lixbox_common)
         
         //divers
-        compile(group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: version_bouncy_castle)
-        compile(group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: version_bouncy_castle)
-        compile(group: 'org.bouncycastle', name: 'bcmail-jdk15on', version: version_bouncy_castle)
+        api(group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: version_bouncy_castle)
+        api(group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: version_bouncy_castle)
+        api(group: 'org.bouncycastle', name: 'bcmail-jdk15on', version: version_bouncy_castle)
         
 
 
         // ================================ Test ================================
-        testCompile group: 'junit', name:'junit', version: version_junit
+        testImplementation group: 'junit', name:'junit', version: version_junit
 	}
     
     jar{

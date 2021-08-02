@@ -1,8 +1,8 @@
 project(':lixbox-jaas-cert'){    
 	dependencies {    
         //lixbox
-        compile project(':lixbox-jaas-core')
-        compile project(':lixbox-certificat')
+        api project(':lixbox-jaas-core')
+        api project(':lixbox-certificat')
 
 
         //divers
@@ -10,7 +10,7 @@ project(':lixbox-jaas-cert'){
 
 
         // ================================ Test ================================
-        testCompile group: 'junit', name:'junit', version: version_junit
+        testImplementation group: 'junit', name:'junit', version: version_junit
 	}
     
     jar{

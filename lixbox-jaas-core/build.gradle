@@ -1,14 +1,14 @@
 project(':lixbox-jaas-core'){    
 	dependencies {    
         //lixbox
-        compile(group: 'fr.lixbox.lixbox-common', name: 'lixbox-core', version: version_lixbox_common)
+        api(group: 'fr.lixbox.lixbox-common', name: 'lixbox-core', version: version_lixbox_common)
         
         //divers
         compileOnly 'org.picketbox:picketbox:4.0.21.Final'
 
 
         // ================================ Test ================================
-        testCompile group: 'junit', name:'junit', version: version_junit
+        testImplementation group: 'junit', name:'junit', version: version_junit
 	}
     
     jar{

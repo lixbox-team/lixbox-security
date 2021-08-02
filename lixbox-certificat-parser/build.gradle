@@ -1,16 +1,16 @@
 project(':lixbox-certificat-parser'){    
 	dependencies {    
 	    //project
-	    compile project(':lixbox-certificat')
+	    api project(':lixbox-certificat')
 	    
         //divers
-        compile(group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: version_bouncy_castle)
-        compile(group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: version_bouncy_castle)
-        compile(group: 'org.bouncycastle', name: 'bcmail-jdk15on', version: version_bouncy_castle)
+        api(group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: version_bouncy_castle)
+        api(group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: version_bouncy_castle)
+        api(group: 'org.bouncycastle', name: 'bcmail-jdk15on', version: version_bouncy_castle)
 
 
         // ================================ Test ================================
-        testCompile group: 'junit', name:'junit', version: version_junit
+        testImplementation group: 'junit', name:'junit', version: version_junit
 	}
     
     jar{

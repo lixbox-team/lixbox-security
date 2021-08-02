@@ -1,17 +1,17 @@
 project(':lixbox-keycloak'){    
 	dependencies {    
         //lixbox
-        compile(group: 'fr.lixbox.lixbox-common', name: 'lixbox-core', version: version_lixbox_common)
+        api(group: 'fr.lixbox.lixbox-common', name: 'lixbox-core', version: version_lixbox_common)
         
         //divers
         compileOnly (group: 'org.keycloak', name: 'keycloak-admin-client', version: version_keycloak){
             exclude group: 'com.fasterxml.jackson.core'
         }
-        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
+        api group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
         
         
         // ================================ Test ================================
-        testCompile group: 'junit', name:'junit', version: version_junit
+        testImplementation group: 'junit', name:'junit', version: version_junit
 	}
     
     jar{
